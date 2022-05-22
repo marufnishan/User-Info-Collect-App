@@ -1,6 +1,8 @@
 <?php
 
-use App\Http\Controllers\Livewire\UserController;
+//use App\Http\Controllers\Livewire\UserController;
+
+use App\Http\Livewire\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,7 +21,8 @@ Route::get('/', function () {
 });
 
 Route::post('/userinfo', [UserController::class, 'store'])->name('userinfo');
-Route::get('/all_users', [UserController::class, 'index'])->name('allusers');
+Route::get('/all_users' , App\Http\Livewire\UserController::class)->name('allusers');
+
 
 
 
