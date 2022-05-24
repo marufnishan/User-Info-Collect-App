@@ -14,6 +14,22 @@ class UserController extends Component
     public $searchUser;
     public $filter =2;
 
+    public $name;
+    public $fathername;
+    public $mothername;
+    public $trainingname;
+    public $cirtificateno;
+    public $village;
+    public $postoffice;
+    public $province;
+    public $district;
+    public $nid;
+    public $birthdate;
+    public $phone;
+    public $parentphone;
+    public $emailfb;
+    public $picture;
+
     public function store(Request $request)
     {
         Validator::make($request->all(), [
@@ -38,4 +54,5 @@ class UserController extends Component
             'allusers' => Userinfo::where('name','like', $search)->paginate($this->filter)
         ]);
     }
+    
 }

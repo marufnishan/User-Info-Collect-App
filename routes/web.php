@@ -21,6 +21,10 @@ Route::get('/', function () {
 });
 
 Route::post('/userinfo', [UserController::class, 'store'])->name('userinfo');
+Route::get('/edit/{user_id}', App\Http\Livewire\UserEditController::class)->name('edit');
+Route::put('/update', App\Http\Livewire\UserEditController::class)->name('update');
+
+
 Route::get('/all_users' , App\Http\Livewire\UserController::class)->name('allusers');
 
 

@@ -83,7 +83,7 @@
             
                         <div>
                             <x-jet-label for="birthdate" class="block mt-2 w-full" value="{{ __('জন্মতারিখ') }}" />
-                            <x-jet-input id="birthdate" class="block mt-1 w-full" type="text" name="birthdate" :value="old('birthdate')" required autofocus autocomplete="birthdate" />
+                            <x-jet-input id="birthdate"  class="block mt-1 w-full" type="date" name="birthdate" :value="old('birthdate')" required autofocus autocomplete="birthdate" />
                         </div>
     
                         <div>

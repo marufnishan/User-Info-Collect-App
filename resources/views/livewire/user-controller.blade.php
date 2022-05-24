@@ -21,6 +21,13 @@
             <button type="button" class="btn-close pe-5" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
         @endif
+
+        @if ($message = Session::get('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>{{ $message }}</strong>
+            <button type="button" class="btn-close pe-5" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        @endif
         <x-slot name="header">
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 @if(Auth::user()->utype === 'Admin')
@@ -35,7 +42,7 @@
                         <table class="table table-striped table-panel-success">
                             <thead>
                                 <div class="d-flex">
-                                    <input type="text" class="me-3 mb-3" placeholder="Search...."
+                                    <input type="text" class="me-3 mb-3" placeholder="Search By Name ...."
                                         style="border-radius: 5px" wire:model="searchUser">
                                     <Select class="me-3 mb-3" style="border-radius: 5px" wire:model="filter">
                                         <option value="">Per Page</option>
@@ -83,7 +90,7 @@
                                     <td>{{$user->parentphone}}</td>
                                     <td>{{$user->emailfb}}</td>
                                     <td>{{$user->picture}}</td>
-                                    <td class="d-flex"><button class="btn btn-secondary m-2">Edit</button><button
+                                    <td class="d-flex"><a href="{{route('edit',['user_id'=>$user->id])}}"><button class="btn btn-secondary m-2">Edit</button></a><button
                                             class="btn btn-danger m-2"
                                             wire:click="delete({{ $user->id }})">Delete</button></td>
                                 </tr>
