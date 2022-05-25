@@ -10,13 +10,6 @@
 </head>
 <body>
     <x-app-layout>
-        <x-slot name="header">
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                @if(Auth::user()->utype === 'Admin')
-                <a href="{{ route('allusers') }}"><button class="btn btn-success">Show All Users</button></a>
-                @endif
-            </h2>
-        </x-slot>
         
         @if ($message = Session::get('message'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">

@@ -38,13 +38,6 @@
             <button type="button" class="btn-close pe-5" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
         @endif
-        <x-slot name="header">
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                @if(Auth::user()->utype === 'Admin')
-                <a href="{{ route('dashboard') }}"><button class="btn btn-success">Add New Student</button></a>
-                @endif
-            </h2>
-        </x-slot>
         <div class="container p-5">
             <div class="panel md-whiteframe-2dp">
                 <div class="panel-body">
@@ -127,9 +120,7 @@
                     overflow: hidden;
                     text-overflow: ellipsis;
                     border: 2px solid black;
-                }
-
-                ,
+                },
 
             </style>
 
