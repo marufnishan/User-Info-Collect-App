@@ -7,6 +7,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <!-- CSS only -->
+        <style>
+            @font-face {
+            font-family: 'nikosh';
+            src: url({{ storage_path('fonts\Nikosh.ttf') }}) format("truetype");
+			font-style: normal;
+        }
+        .body{
+            font-family: 'nikosh';
+        }
+        </style>
         @livewireStyles
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
             integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
@@ -50,6 +60,8 @@
                                         <option value="10">10 Per Page</option>
                                         <option value="15">15 Per Page</option>
                                     </Select>
+                                    <a href="{{ route('getpdf') }}"><button class="btn btn-danger">PDF</button></a>
+                                    
                                 </div>
                                 <tr>
                                     <th>No.</th>

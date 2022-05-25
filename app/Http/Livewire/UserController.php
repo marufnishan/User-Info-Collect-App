@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Validator;
 use Livewire\Component;
 use Livewire\WithPagination;
 
+
 class UserController extends Component
 {
     use WithPagination;
@@ -46,6 +47,8 @@ class UserController extends Component
         Userinfo::find($id)->delete();
         return back()->with('message', 'Profile Deleted Successfully!');
     }
+
+    
 
     public function render()
     {
