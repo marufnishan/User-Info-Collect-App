@@ -3,11 +3,13 @@
 namespace App\Http\Livewire;
 
 use App\Models\Userinfo;
+use Carbon\Carbon;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class UserEditController extends Component
 {
-
+    use WithFileUploads;
     public $name;
     public $fathername;
     public $mothername;
@@ -81,7 +83,9 @@ class UserEditController extends Component
         $user->phone = $this->phone;
         $user->parentphone = $this->parentphone;
         $user->emailfb = $this->emailfb;
-        $user->picture = $this->picture;
+        $imageName = Carbon::now()->timestamp. '.' . $this->picture->extension();
+        $this->picture->storeAs('public/images', $imageName);
+        $user->picture = $imageName;
         $user->save();
         return redirect('/all_users')->with('success','Profile Updated successfully!');
     }

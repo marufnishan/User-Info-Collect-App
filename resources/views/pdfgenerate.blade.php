@@ -61,7 +61,6 @@
                 <th>Phone(Personal)</th>
                 <th>Phone(Parent)</th>
                 <th>Email / Fb Id</th>
-                <th>Image</th>
             </tr>
         </thead>
         <tbody>
@@ -82,7 +81,6 @@
                 <td>{{$user->phone}}</td>
                 <td>{{$user->parentphone}}</td>
                 <td>{{$user->emailfb}}</td>
-                <td>{{$user->picture}}</td>
             </tr>
             @endforeach
         </tbody>

@@ -28,7 +28,7 @@
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg" style="padding: 10px">
-                    <form  method="POST" action="{{ route('userinfo') }}">
+                    <form  method="POST" action="{{ route('userinfo') }}" enctype="multipart/form-data">
                         @csrf
             
                         <div>
@@ -103,7 +103,7 @@
     
                         <div>
                             <x-jet-label for="picture" class="block mt-2 w-full" value="{{ __('ছবি') }}" />
-                            <x-jet-input id="picture" class="block mt-1 w-full" type="text" name="picture" :value="old('picture')" required autofocus autocomplete="picture" />
+                            <x-jet-input id="picture" class="block mt-2 p-3 w-full" type="file" name="picture" />
                         </div>
             
                         <div class="flex items-center justify-end mt-4">

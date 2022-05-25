@@ -3,15 +3,18 @@
 namespace App\Http\Livewire;
 
 use App\Models\Userinfo;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Livewire\WithFileUploads;
 
 
 class UserController extends Component
 {
     use WithPagination;
+    use WithFileUploads;
     public $searchUser;
     public $filter =2;
 
@@ -36,9 +39,29 @@ class UserController extends Component
         Validator::make($request->all(), [
             'name'=> 'required',
             'trainingname' => 'required',
+            'picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ])->validate();
-  
-        Userinfo::create($request->all());
+        $imageName = Carbon::now()->timestamp. '.' . $request->picture->extension();
+     
+        $request->picture->storeAs('public/images', $imageName);
+
+        $user= new Userinfo();
+        $user->name = $request->name;
+        $user->fathername = $request->fathername;
+        $user->mothername = $request->mothername;
+        $user->trainingname = $request->trainingname;
+        $user->cirtificateno = $request->cirtificateno;
+        $user->village = $request->village;
+        $user->postoffice = $request->postoffice;
+        $user->province = $request->province;
+        $user->district = $request->district;
+        $user->nid = $request->nid;
+        $user->birthdate = $request->birthdate;
+        $user->phone = $request->phone;
+        $user->parentphone = $request->parentphone;
+        $user->emailfb = $request->emailfb;
+        $user->picture = $imageName;
+        $user->save();
             return back()->with('message','Profile created successfully!');
     }
 

@@ -79,7 +79,7 @@
                                     <th>মোবাইল(ব্যক্তিগত)</th>
                                     <th>মোবাইল(অভিভাবক)</th>
                                     <th>ই-মেইল / ফেসবুক আইডি</th>
-                                    <th>ছবি</th>
+                                    <th> পরীক্ষার্থীর  ছবি   </th>
                                     <th colspan="2" class="text-center">Action</th>
                                 </tr>
                             </thead>
@@ -101,7 +101,8 @@
                                     <td>{{$user->phone}}</td>
                                     <td>{{$user->parentphone}}</td>
                                     <td>{{$user->emailfb}}</td>
-                                    <td>{{$user->picture}}</td>
+                                    <td><img src="{{asset('storage/images')}}/{{$user->picture}}" style="width: 100px !important;
+                                        height: 100px !important;"/></td>
                                     <td class="d-flex"><a href="{{route('edit',['user_id'=>$user->id])}}"><button class="btn btn-secondary m-2">Edit</button></a><button
                                             class="btn btn-danger m-2"
                                             wire:click="delete({{ $user->id }})">Delete</button></td>

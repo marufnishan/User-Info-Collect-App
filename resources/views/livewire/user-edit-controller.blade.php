@@ -28,7 +28,7 @@
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg" style="padding: 10px">
-                    <form  wire:submit.prevent="update">
+                    <form  wire:submit.prevent="update" enctype="multipart/form-data">
                         
                         <div>
                             <x-jet-label for="name" class="block mt-2 w-full" value="{{ __('পরীক্ষার্থীর নাম') }}" />
@@ -116,7 +116,7 @@
     
                         <div>
                             <x-jet-label for="picture" class="block mt-2 w-full" value="{{ __('ছবি') }}" />
-                            <x-jet-input id="picture" class="block mt-1 w-full" type="text" name="picture" :value="old('picture')"  autofocus autocomplete="picture" wire:model="picture" />
+                            <x-jet-input id="picture" class="block mt-1 p-3 w-full" type="file" name="picture" :value="old('picture')"  autofocus autocomplete="picture" wire:model="picture" />
                         </div>
             
                         <div class="flex items-center justify-end mt-4">
