@@ -13,6 +13,14 @@
                     <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('allnotice') }}" :active="request()->routeIs('allnotice')">
+                        {{ __('Notice Board') }}
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('notice') }}" :active="request()->routeIs('notice')">
+                        @if(Auth::user()->utype === 'Admin')
+                        {{ __('Add Notice') }}
+                        @endif
+                    </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('allusers') }}" :active="request()->routeIs('allusers')">
                         @if(Auth::user()->utype === 'Admin')
                         {{ __('Show All Users') }}
