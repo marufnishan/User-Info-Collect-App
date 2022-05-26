@@ -74,6 +74,7 @@
                                     <th>ই-মেইল / ফেসবুক আইডি</th>
                                     <th> পরীক্ষার্থীর  ছবি   </th>
                                     <th colspan="2" class="text-center">Action</th>
+                                    <th>Download Img</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -96,9 +97,11 @@
                                     <td>{{$user->emailfb}}</td>
                                     <td><img src="{{asset('storage/images')}}/{{$user->picture}}" style="width: 100px !important;
                                         height: 100px !important;"/></td>
-                                    <td class="d-flex"><a href="{{route('edit',['user_id'=>$user->id])}}"><button class="btn btn-secondary m-2">Edit</button></a><button
-                                            class="btn btn-danger m-2"
-                                            wire:click="delete({{ $user->id }})">Delete</button></td>
+                                    <td ><a href="{{route('edit',['user_id'=>$user->id])}}"><button class="btn btn-secondary m-2">Edit</button></a></td>
+                                            <td><button
+                                                class="btn btn-danger m-2"
+                                                wire:click="delete({{ $user->id }})">Delete</button></td>
+                                    <td><button class="btn btn-success m-2" wire:click="download({{ $user->id }})">Download</button></td>
                                 </tr>
                                 @endforeach
                             </tbody>

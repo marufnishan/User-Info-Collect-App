@@ -71,7 +71,13 @@ class UserController extends Component
         return back()->with('message', 'Profile Deleted Successfully!');
     }
 
-    
+    public function  download($id){
+        $user =Userinfo::find($id);
+        //dd($user->picture);
+        $path = public_path('storage/images').'/'.$user->picture;
+
+        return response()->download($path);
+    }
 
     public function render()
     {

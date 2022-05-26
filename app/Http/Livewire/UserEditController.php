@@ -26,6 +26,8 @@ class UserEditController extends Component
     public $emailfb;
     public $picture;
 
+    public $newpicture;
+
     public function mount($user_id)
     {
         $this->user_id = $user_id;
@@ -68,6 +70,14 @@ class UserEditController extends Component
             'emailfb' => 'required',
         ]);
 
+        if($this->newpicture)
+        {
+            $this->validate([
+                
+                'newpicture' => 'required|mimes:jpeg,png'
+            ]);
+        }
+
         $user = Userinfo::find($this->user_id);
         $user->name = $this->name;
         $user->fathername = $this->fathername;
@@ -83,14 +93,16 @@ class UserEditController extends Component
         $user->phone = $this->phone;
         $user->parentphone = $this->parentphone;
         $user->emailfb = $this->emailfb;
-        $imageName = Carbon::now()->timestamp. '.' . $this->picture->extension();
-        $this->picture->storeAs('public/images', $imageName);
-        $user->picture = $imageName;
+
+        if($this->newpicture)
+        {
+            $imageName = Carbon::now()->timestamp. '.' . $this->newpicture->extension();
+            $this->newpicture->storeAs('public/images', $imageName);
+            $user->picture = $imageName;
+        }
         $user->save();
         return redirect('/all_users')->with('success','Profile Updated successfully!');
     }
-
-
     public function render()
     {
         return view('livewire.user-edit-controller');

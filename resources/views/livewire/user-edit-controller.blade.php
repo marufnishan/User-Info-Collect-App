@@ -115,8 +115,8 @@
                         </div>
     
                         <div>
-                            <x-jet-label for="picture" class="block mt-2 w-full" value="{{ __('ছবি') }}" />
-                            <x-jet-input id="picture" class="block mt-1 p-3 w-full" type="file" name="picture" :value="old('picture')"  autofocus autocomplete="picture" wire:model="picture" />
+                            <x-jet-label for="newpicture" class="block mt-2 w-full" value="{{ __('ছবি') }}" />
+                            <x-jet-input id="newpicture" class="block mt-1 p-3 w-full" type="file" name="newpicture" :value="old('newpicture')"  autofocus autocomplete="newpicture" wire:model="newpicture" />
                         </div>
             
                         <div class="flex items-center justify-end mt-4">
